@@ -1,0 +1,5 @@
+C:\NuevoRobot\controllers\mi_robot\mi_robot.py
+C:\NuevoRobot\controllers\obstaculo_movil\obstaculo_movil.py
+C:\NuevoRobot\controllers\rover_controller\localizacion.py
+C:\NuevoRobot\controllers\rover_controller\percepcion.py
+C:\NuevoRobot\controllers\rover_controller\rover_controller.py

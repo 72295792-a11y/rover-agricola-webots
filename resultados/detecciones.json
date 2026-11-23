@@ -1,0 +1,98 @@
+{
+  "observaciones_totales": 394,
+  "plantas_detectadas": 10,
+  "plantas_sanas": 7,
+  "plantas_estres_hidrico": 3,
+  "plantas": [
+    {
+      "id": 1,
+      "clase": "planta_sana",
+      "confianza_max": 1.0,
+      "indice_estres": 0.0,
+      "pos_x": -0.132,
+      "pos_y": -2.563,
+      "observaciones": 5
+    },
+    {
+      "id": 2,
+      "clase": "planta_sana",
+      "confianza_max": 1.0,
+      "indice_estres": 0.0,
+      "pos_x": -2.168,
+      "pos_y": -2.527,
+      "observaciones": 6
+    },
+    {
+      "id": 3,
+      "clase": "planta_estres_hidrico",
+      "confianza_max": 1.0,
+      "indice_estres": 0.946,
+      "pos_x": -1.808,
+      "pos_y": -0.065,
+      "observaciones": 56
+    },
+    {
+      "id": 4,
+      "clase": "planta_sana",
+      "confianza_max": 1.0,
+      "indice_estres": 0.0,
+      "pos_x": -2.332,
+      "pos_y": 1.55,
+      "observaciones": 32
+    },
+    {
+      "id": 5,
+      "clase": "planta_sana",
+      "confianza_max": 1.0,
+      "indice_estres": 0.204,
+      "pos_x": -0.062,
+      "pos_y": -0.135,
+      "observaciones": 69
+    },
+    {
+      "id": 6,
+      "clase": "planta_sana",
+      "confianza_max": 1.0,
+      "indice_estres": 0.0,
+      "pos_x": 0.795,
+      "pos_y": 1.484,
+      "observaciones": 27
+    },
+    {
+      "id": 7,
+      "clase": "planta_estres_hidrico",
+      "confianza_max": 0.9999,
+      "indice_estres": 1.0,
+      "pos_x": 1.742,
+      "pos_y": -0.156,
+      "observaciones": 42
+    },
+    {
+      "id": 8,
+      "clase": "planta_sana",
+      "confianza_max": 1.0,
+      "indice_estres": 0.0,
+      "pos_x": 1.937,
+      "pos_y": 2.273,
+      "observaciones": 52
+    },
+    {
+      "id": 9,
+      "clase": "planta_estres_hidrico",
+      "confianza_max": 1.0,
+      "indice_estres": 0.535,
+      "pos_x": -0.26,
+      "pos_y": 2.181,
+      "observaciones": 38
+    },
+    {
+      "id": 10,
+      "clase": "planta_sana",
+      "confianza_max": 0.9972,
+      "indice_estres": 0.0,
+      "pos_x": -1.923,
+      "pos_y": 2.2,
+      "observaciones": 67
+    }
+  ]
+}

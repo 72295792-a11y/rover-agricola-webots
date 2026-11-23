@@ -1,0 +1,6 @@
+﻿# Dependencias del Rover Agricola 4x4 (Python 3.12 + Webots R2025a)
+# Para PyTorch CPU ligero: pip install torch --index-url https://download.pytorch.org/whl/cpu
+opencv-python>=4.10.0
+numpy>=2.0.0
+matplotlib>=3.9.0
+torch>=2.5.0

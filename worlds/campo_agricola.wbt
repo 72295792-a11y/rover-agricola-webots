@@ -1,0 +1,133 @@
+﻿#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "../protos/RoverAgricola.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.57735 0.57735 0.57735 2.0944
+  position 0 0 12
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 10
+  floorTileSize 1 1
+}
+
+# --- SURCO 1 (Verde = sana, Amarillo = estres hidrico) ---
+Solid {
+  translation -2 2.5 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.1 0.65 0.15 roughness 0.9 metalness 0 } geometry Box { size 0.4 0.4 0.4 } } ]
+  name "planta_sana_1"
+  boundingObject Box { size 0.4 0.4 0.4 }
+}
+Solid {
+  translation 0 2.5 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.85 0.7 0.1 roughness 0.9 metalness 0 } geometry Box { size 0.4 0.4 0.4 } } ]
+  name "planta_estres_1"
+  boundingObject Box { size 0.4 0.4 0.4 }
+}
+Solid {
+  translation 2 2.5 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.1 0.65 0.15 roughness 0.9 metalness 0 } geometry Box { size 0.4 0.4 0.4 } } ]
+  name "planta_sana_2"
+  boundingObject Box { size 0.4 0.4 0.4 }
+}
+
+# --- SURCO 2 ---
+Solid {
+  translation -2 0 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.85 0.7 0.1 roughness 0.9 metalness 0 } geometry Box { size 0.4 0.4 0.4 } } ]
+  name "planta_estres_2"
+  boundingObject Box { size 0.4 0.4 0.4 }
+}
+Solid {
+  translation 0 0 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.1 0.65 0.15 roughness 0.9 metalness 0 } geometry Box { size 0.4 0.4 0.4 } } ]
+  name "planta_sana_3"
+  boundingObject Box { size 0.4 0.4 0.4 }
+}
+Solid {
+  translation 2 0 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.85 0.7 0.1 roughness 0.9 metalness 0 } geometry Box { size 0.4 0.4 0.4 } } ]
+  name "planta_estres_3"
+  boundingObject Box { size 0.4 0.4 0.4 }
+}
+
+# --- SURCO 3 ---
+Solid {
+  translation -2 -2.5 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.1 0.65 0.15 roughness 0.9 metalness 0 } geometry Box { size 0.4 0.4 0.4 } } ]
+  name "planta_sana_4"
+  boundingObject Box { size 0.4 0.4 0.4 }
+}
+Solid {
+  translation 0 -2.5 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.1 0.65 0.15 roughness 0.9 metalness 0 } geometry Box { size 0.4 0.4 0.4 } } ]
+  name "planta_sana_5"
+  boundingObject Box { size 0.4 0.4 0.4 }
+}
+Solid {
+  translation 2 -2.5 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.85 0.7 0.1 roughness 0.9 metalness 0 } geometry Box { size 0.4 0.4 0.4 } } ]
+  name "planta_estres_4"
+  boundingObject Box { size 0.4 0.4 0.4 }
+}
+
+# --- OBSTACULOS ESTATICOS ---
+Solid {
+  translation -1 1.25 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.45 0.45 0.45 roughness 0.9 metalness 0 } geometry Box { size 0.45 0.45 0.4 } } ]
+  name "roca_estatica_1"
+  boundingObject Box { size 0.45 0.45 0.4 }
+}
+Solid {
+  translation 1.5 -1.25 0.2
+  children [ Shape { appearance PBRAppearance { baseColor 0.45 0.45 0.45 roughness 0.9 metalness 0 } geometry Box { size 0.45 0.45 0.4 } } ]
+  name "roca_estatica_2"
+  boundingObject Box { size 0.45 0.45 0.4 }
+}
+
+# --- OBSTACULO DINAMICO ---
+Robot {
+  translation 0 -1.25 0.21
+  children [
+    SliderJoint {
+      jointParameters JointParameters {
+        axis 1 0 0
+      }
+      device [
+        LinearMotor {
+          name "slide_motor"
+          maxForce 50
+        }
+      ]
+      endPoint Solid {
+        children [
+          Shape {
+            appearance PBRAppearance { baseColor 0.85 0.15 0.15 roughness 0.5 metalness 0 }
+            geometry Box { size 0.4 0.4 0.4 }
+          }
+        ]
+        name "bloque_rojo"
+        boundingObject Box { size 0.4 0.4 0.4 }
+        physics Physics { density -1 mass 1.0 }
+      }
+    }
+  ]
+  name "obstaculo_movil"
+  controller "obstaculo_movil"
+}
+
+# --- ROVER AGRICOLA 4x4 (PROTO PROPIO) ---
+RoverAgricola {
+  translation -3.5 -3.5 0.15
+  name "rover_agricola"
+  controller "rover_controller"
+}

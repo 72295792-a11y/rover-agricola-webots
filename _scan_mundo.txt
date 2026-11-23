@@ -1,0 +1,4 @@
+6: EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+11:   orientation -0.57735 0.57735 0.57735 2.0944
+12:   position 0 0 2
+23:   controller "mi_robot"

@@ -1,0 +1,13 @@
+{
+  "modelo": "CultivoCNN",
+  "clases": [
+    "planta_sana",
+    "planta_estres_hidrico",
+    "fondo_otro"
+  ],
+  "muestras_train": 1500,
+  "muestras_val": 300,
+  "epocas": 12,
+  "val_accuracy": 0.9933,
+  "tiempo_s": 11.49
+}

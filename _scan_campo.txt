@@ -1,0 +1,25 @@
+10:   orientation -0.57735 0.57735 0.57735 2.0944
+11:   position 0 0 12
+26:   name "planta_sana_1"
+32:   name "planta_estres_1"
+38:   name "planta_sana_2"
+46:   name "planta_estres_2"
+52:   name "planta_sana_3"
+58:   name "planta_estres_3"
+66:   name "planta_sana_4"
+72:   name "planta_sana_5"
+78:   name "planta_estres_4"
+82: # --- OBSTACULOS ESTATICOS ---
+86:   name "roca_estatica_1"
+92:   name "roca_estatica_2"
+96: # --- OBSTACULO DINAMICO ---
+97: Robot {
+123:   name "obstaculo_movil"
+124:   controller "obstaculo_movil"
+128: Robot {
+135:     Lidar {
+137:       name "lidar"
+159:       device [ RotationalMotor { name "wheel_fl" } PositionSensor { name "enc_fl" } ]
+171:       device [ RotationalMotor { name "wheel_fr" } PositionSensor { name "enc_fr" } ]
+183:       device [ RotationalMotor { name "wheel_rl" } PositionSensor { name "enc_rl" } ]
+195:       device [ RotationalMotor { name "wheel_rr" } PositionSensor { name "enc_rr" } ]

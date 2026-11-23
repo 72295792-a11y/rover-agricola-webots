@@ -1,0 +1,95 @@
+﻿#VRML_SIM R2025a utf8
+# Rover Agricola 4x4 (Skid-Steer) para monitoreo de cultivos en la meseta del Mantaro
+
+PROTO RoverAgricola [
+  field SFVec3f    translation  -3.5 -3.5 0.15
+  field SFRotation rotation     0 0 1 0
+  field SFString   name         "rover_agricola"
+  field SFString   controller   "rover_controller"
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    controller IS controller
+    children [
+      Shape {
+        appearance PBRAppearance { baseColor 0.15 0.35 0.75 roughness 0.5 metalness 0.2 }
+        geometry Box { size 0.5 0.35 0.15 }
+      }
+      Lidar {
+        translation 0.15 0 0.12
+        name "lidar"
+        horizontalResolution 360
+        fieldOfView 6.28318
+        numberOfLayers 1
+        maxRange 8
+      }
+      Camera {
+        translation 0.25 0 0.12
+        name "camera"
+        width 320
+        height 240
+      }
+      InertialUnit {
+        translation 0 0 0.08
+        name "imu"
+      }
+      GPS {
+        translation 0 0 0.10
+        name "gps_ground_truth"
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters { axis 0 1 0 anchor 0.18 0.22 -0.05 }
+        device [ RotationalMotor { name "wheel_fl" } PositionSensor { name "enc_fl" } ]
+        endPoint Solid {
+          translation 0.18 0.22 -0.05
+          rotation 1 0 0 1.5708
+          children [ Shape { appearance PBRAppearance { baseColor 0.1 0.1 0.1 roughness 0.9 metalness 0 } geometry Cylinder { height 0.06 radius 0.1 } } ]
+          name "wheel_fl_solid"
+          boundingObject Cylinder { height 0.06 radius 0.1 }
+          physics Physics { density -1 mass 0.5 }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters { axis 0 1 0 anchor 0.18 -0.22 -0.05 }
+        device [ RotationalMotor { name "wheel_fr" } PositionSensor { name "enc_fr" } ]
+        endPoint Solid {
+          translation 0.18 -0.22 -0.05
+          rotation 1 0 0 1.5708
+          children [ Shape { appearance PBRAppearance { baseColor 0.1 0.1 0.1 roughness 0.9 metalness 0 } geometry Cylinder { height 0.06 radius 0.1 } } ]
+          name "wheel_fr_solid"
+          boundingObject Cylinder { height 0.06 radius 0.1 }
+          physics Physics { density -1 mass 0.5 }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters { axis 0 1 0 anchor -0.18 0.22 -0.05 }
+        device [ RotationalMotor { name "wheel_rl" } PositionSensor { name "enc_rl" } ]
+        endPoint Solid {
+          translation -0.18 0.22 -0.05
+          rotation 1 0 0 1.5708
+          children [ Shape { appearance PBRAppearance { baseColor 0.1 0.1 0.1 roughness 0.9 metalness 0 } geometry Cylinder { height 0.06 radius 0.1 } } ]
+          name "wheel_rl_solid"
+          boundingObject Cylinder { height 0.06 radius 0.1 }
+          physics Physics { density -1 mass 0.5 }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters { axis 0 1 0 anchor -0.18 -0.22 -0.05 }
+        device [ RotationalMotor { name "wheel_rr" } PositionSensor { name "enc_rr" } ]
+        endPoint Solid {
+          translation -0.18 -0.22 -0.05
+          rotation 1 0 0 1.5708
+          children [ Shape { appearance PBRAppearance { baseColor 0.1 0.1 0.1 roughness 0.9 metalness 0 } geometry Cylinder { height 0.06 radius 0.1 } } ]
+          name "wheel_rr_solid"
+          boundingObject Cylinder { height 0.06 radius 0.1 }
+          physics Physics { density -1 mass 0.5 }
+        }
+      }
+    ]
+    boundingObject Box { size 0.5 0.35 0.15 }
+    physics Physics { density -1 mass 5.0 }
+  }
+}
